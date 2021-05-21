@@ -2,6 +2,4 @@
 
 필요 패키지
 
-'''
-pip install django
-'''
+  pip install django
