@@ -1,0 +1,23 @@
+{% load static %}
+{% include 'head.html' %}
+<html lang="ko">
+<title>
+    {% block title %}
+    {% endblock %} | Memory_Storage
+</title>
+
+<body>
+
+    {% include 'header.html' %}
+
+    <div>
+        {% block content %}
+    
+        {% endblock %}
+    </div>
+    
+    {% include 'footer.html' %}
+
+</body>
+
+</html>
