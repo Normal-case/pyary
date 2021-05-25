@@ -1,42 +1,106 @@
-{% extends 'base.html' %}
+{% extends 'nonHeader.html' %}
 {% load static %}
+
 {% block content %}
-        <div class="create_name" style='text-align: center;'>
-            <h4>#회원가입</h4>
+    <div id="background">
+        <div class="layer"></div>
+        <div class="title">추억 저장소</div>
+    </div>
+    <div id="register">
+        <div class="form_wrapper">
+            <div class="title">Register</div>
+            <form action="{% url 'accountapp:create' %}" method='POST' class="login_form">
+                {% csrf_token %}
+                <div class="login_layout">
+                    <div id="username">
+                        <ul>
+                            <li>
+                                <div style="width: calc(50% - 3px); display: inline-block">{% include './snippets/agreement_using.html' %}</div>
+                                <div style="width: calc(50% - 3px); display: inline-block">{% include './snippets/agreement_information.html' %}</div>
+                            </li>
+                        </ul>
+                        <ul class="username_layout">
+                            <li class="input_label">Username</li>
+                            <li>{{ form.username }}</li>
+                        </ul>
+                        <ul class="username_layout">
+                            <li class="input_label">Email</li>
+                            <li>{{ form.email }}</li>
+                        </ul>
+                        <ul class="password_layout">
+                            <li class="input_label">Password</li>
+                            <li>{{ form.password1 }}</li>
+                        </ul>
+                        <ul class="password_layout">
+                            <li class="input_label">Confirm password</li>
+                            <li>{{ form.password2 }}</li>
+                        </ul>
+                        <ul class="password_layout">
+                            <li>
+                                {% for error in form.password2.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="login_btn_section">
+                        <ul id="login_btn">
+                            <li><input type="submit" value="Submit" class="btn btn-secondary mt-10"></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
         </div>
-        <form action="{% url 'accountapp:create' %}" method='post' class="loding_next">
-            {% csrf_token %}
-            <div id="center">
-                <div class="agreement">
-                    <ul>
-                        <li style='padding-bottom: 20px;'>{% include './snippets/agreement_using.html' %}</li>
-                        <li>{% include './snippets/agreement_information.html' %}</li>
-                    </ul>
-                </div>
-                <div id="user_name_create" style='padding-bottom: 20px'>
-                        <div style='max-width: 700px; margin: 0 auto; display: flex;'><i class="fas fa-user" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.username }}</div>
-                    <div>
-                    {% for error in form.username.errors %}
-                        {{ error }}
-                    {% endfor %}
-                    </div>
-                </div>
-                <div id="user_email_confirm" style='padding-bottom: 20px'>
-                    <div style='max-width: 700px; margin: 0 auto; display: flex;'><i class="far fa-envelope" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.email }}</div>
-                </div>
-                <div id="user_password_create" style='padding-bottom: 20px'>
-                    <div style='max-width: 700px; margin: 0 auto; display: flex;'><i class="fas fa-key" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.password1 }}</div>
-                </div>
-                <div id="user_password_again" style='padding-bottom: 20px'>
-                    <div style='max-width: 700px; margin: 0 auto; display: flex;'><i class="fas fa-key" style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.password2 }}</div>
-                    <div style="border: none; font-size: 14px; color: red;">
-                    {% for error in form.password2.errors %}
-                        {{ error }}
-                    {% endfor %}
-                    </div>
-                </div>
-                <div style='text-align: center; padding-bottom: 50px;'><input style='margin: 0 auto;' type="submit" value='회원가입' class="btn btn-secondary col-2 rounded-pill"></div>
-                
-            </div>
-        </form>
+    </div>
+
+
+{#    <div class="create_name" style='text-align: center;'>#}
+{#        <h4>#회원가입</h4>#}
+{#    </div>#}
+{#    <form action="{% url 'accountapp:create' %}" method='post' class="loding_next">#}
+{#        {% csrf_token %}#}
+{#        <div id="center">#}
+{#            <div class="agreement">#}
+{#                <ul>#}
+{#                    <li style='padding-bottom: 20px;'>{% include './snippets/agreement_using.html' %}</li>#}
+{#                    <li>{% include './snippets/agreement_information.html' %}</li>#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div id="user_name_create" style='padding-bottom: 20px'>#}
+{#                <div style='max-width: 700px; margin: 0 auto; display: flex;'><i class="fas fa-user"#}
+{#                                                                                 style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.username }}#}
+{#                </div>#}
+{#                <div>#}
+{#                    {% for error in form.username.errors %}#}
+{#                        {{ error }}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#            <div id="user_email_confirm" style='padding-bottom: 20px'>#}
+{#                <div style='max-width: 700px; margin: 0 auto; display: flex;'><i class="far fa-envelope"#}
+{#                                                                                 style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.email }}#}
+{#                </div>#}
+{#            </div>#}
+{#            <div id="user_password_create" style='padding-bottom: 20px'>#}
+{#                <div style='max-width: 700px; margin: 0 auto; display: flex;'><i class="fas fa-key"#}
+{#                                                                                 style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.password1 }}#}
+{#                </div>#}
+{#            </div>#}
+{#            <div id="user_password_again" style='padding-bottom: 20px'>#}
+{#                <div style='max-width: 700px; margin: 0 auto; display: flex;'><i class="fas fa-key"#}
+{#                                                                                 style='padding-right: 15px; padding-top: 8px; font-size: 20px;'></i>{{ form.password2 }}#}
+{#                </div>#}
+{#                <div style="border: none; font-size: 14px; color: red;">#}
+{#                    {% for error in form.password2.errors %}#}
+{#                        {{ error }}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#            <div style='text-align: center; padding-bottom: 50px;'><input style='margin: 0 auto;' type="submit"#}
+{#                                                                          value='회원가입'#}
+{#                                                                          class="btn btn-secondary col-2 rounded-pill">#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#    </form>#}
 {% endblock %}
