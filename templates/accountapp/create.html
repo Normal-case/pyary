@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'nonHeader.html' %}
 {% load static %}
+
 {% block content %}
         <div class="create_name" style='text-align: center;'>
             <h4>#회원가입</h4>
@@ -35,8 +36,6 @@
                     {% endfor %}
                     </div>
                 </div>
-                <div style='text-align: center; padding-bottom: 50px;'><input style='margin: 0 auto;' type="submit" value='회원가입' class="btn btn-secondary col-2 rounded-pill"></div>
-                
-            </div>
-        </form>
-{% endblock %}
+            </form>
+        </div>
+    </div>

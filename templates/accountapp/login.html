@@ -1,33 +1,42 @@
-{% extends 'base.html' %}
+{% extends 'nonHeader.html' %}
 {% load static %}
 
 {% block content %}
-
-<div id="login">
-    <div style='text-align: center; margin-top: 100px; margin-bottom: 50px;'><h1>&nbsp;&nbsp; 로그인</h1></div>
-
-    <form action="" method='POST' class="login_form">
-        {% csrf_token %}
-        <div class="login_layout">
-            <div id="username">
-                <ul class="username_layout" style='text-align: center;'>
-                    <li>아이디</li>
-                    <li style='max-width: 400px; margin: 0 auto;'>{{ form.username }}</li>
-                </ul>
-                <ul class="password_layout" style='text-align: center; padding-bottom: 30px;'>
-                    <li>패스워드</li>
-                    <li style='max-width: 400px; margin: 0 auto;'>{{ form.password }}</li>
-                </ul>
-            </div>
-            <div id="login_btn_section">
-                <ul id="login_btn" style='text-align: center; padding-bottom: 30px;'>
-                    <li><input type="submit" value="로그인" class="btn btn-secondary col-2 rounded-pill"></li>
-                </ul>
-            </div>
+    <div id="background">
+        <div class="layer"></div>
+        <div class="title">추억 저장소</div>
+    </div>
+    <div id="login">
+        <div class="form_wrapper">
+            <div class="title">Login</div>
+            <form action="" method='POST' class="login_form">
+                {% csrf_token %}
+                <div class="login_layout">
+                    <div id="username">
+                        <ul class="username_layout">
+                            <li class="input_label">Username</li>
+                            <li>{{ form.username }}</li>
+                        </ul>
+                        <ul class="password_layout">
+                            <li class="input_label">Password</li>
+                            <li>{{ form.password }}</li>
+                        </ul>
+                        <ul class="password_layout">
+                            <p>
+                            <input type="checkbox" name="auto"/>
+                            <label>check me out</label>
+                            </p>
+                        </ul>
+                    </div>
+                    <div id="login_btn_section">
+                        <ul id="login_btn">
+                            <li><input type="submit" value="Submit" class="btn btn-secondary mt-10"></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
-
-</div>
+    </div>
 
 
 {% endblock %}

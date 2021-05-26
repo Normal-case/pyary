@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+}
+
+#background {
+    height: 50vh;
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+#background .layer {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#background .title {
+    font-size: 2em;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #ffffff;
+}
+
+#login {
+    height: 50vh;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+#login .form_wrapper {
+    top: calc(50vh - 203px);
+    left: calc(50vw - 200px);
+    width: 400px;
+    padding: 30px;
+    position: absolute;
+    border-radius: 10px;
+    /*border: 1px solid #efefef;*/
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+    display: inline-block;
+    text-align: left;
+}
+
+#login dl, #login ol, #login ul {
+    padding: 0;
+}
+
+#login .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #282828;
+    margin: 20px 0;
+}
+
+#login .login_form li {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+#login .form-control {
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 10px 10px;
+}
+
+#login .btn-secondary {
+    background-color: #282828;
+    border-color: #282828;
+    font-size: 14px;
+}
+
+#login .btn-secondary:hover {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+#login .input_label {
+    font-weight: bold;
+}
+
+#login label {
+    font-size: 12px;
+    top: -2.5px;
+    position: relative;
+}
+
+
+#register {
+    height: 50vh;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+#register .form_wrapper {
+    top: calc(50vh - 424px);
+    left: calc(50vw - 400px);
+    /*max-height: 100vh;*/
+    width: 800px;
+    padding: 30px;
+    position: absolute;
+    border-radius: 10px;
+    /*border: 1px solid #efefef;*/
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+    display: inline-block;
+    text-align: left;
+}
+
+@media (max-height: 800px) {
+    #register {
+        height: 890px;
+    }
+    #register .form_wrapper {
+        top: 20px;
+        margin-bottom: 20px;
+    }
+    #background{
+        position:fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+#register dl, #register ol, #register ul {
+    padding: 0;
+}
+
+#register .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #282828;
+    margin: 20px 0;
+}
+
+#register .login_form li {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+#register .form-control {
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 10px 10px;
+}
+
+#register .btn-secondary {
+    background-color: #282828;
+    border-color: #282828;
+    font-size: 14px;
+}
+
+#register .btn-secondary:hover {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+#register .input_label {
+    font-weight: bold;
+}
+
+#register label {
+    font-size: 12px;
+    top: -2.5px;
+    position: relative;
+}
