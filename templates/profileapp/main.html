@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div style='text-align: center;'>
+    <h1>마이페이지</h1>
+</div>
+
+{% if target_user.profile %}
+<div style='text-align: center;'>
+    <img src="{{ target_user.profile.profile_image.url }}" alt="" style='border-radius: 50%; width:100px;'>
+    <h2>닉네임</h2>
+    <p>{{ target_user.profile.nickname }}</p>
+    <h2>휴대폰번호</h2>
+    <p>{{ target_user.profile.phone_number }}</p>
+    <h2>생년월일</h2>
+    <p>{{ target_user.profile.birth | date:"Y-m-d" }}</p>
+</div>
+
+{% else %}
+
+<div style='text-align: center; margin: 50px 0;'>
+    <img src="/static/free-icon-anonymous.png" alt="" style="width: 300px; height:auto;">
+</div>
+
+<div style='text-align: center;'>
+    <p>아직 프로필이 등록되지 않았습니다! 프로필을 등록해주세요.</p>
+</div>
+
+<div style='text-align: center;'>
+    <button type='button' class='btn btn-secondary col-2 rounded-pill'><a href="{% url 'profileapp:create' id=user.username %}" style='text-decoration: none; color: white;'>프로필 생성</a></button>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -69,3 +69,75 @@ a{
 .footer_contents ul li{
     margin: 0 auto;
 }
+
+table.calendar{
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    table-layout: fixed;
+    border: 1px solid #52E4DC;
+
+}
+
+th.month{
+    text-align: center;
+    height: 30px;
+    background: #52E4DC;
+    padding: 30px 0;
+    font-size: 20px;
+}
+
+th.sun{
+    height: 30px;
+}
+
+td {
+    vertical-align: top;
+    padding-left: 20px;
+}
+
+th.mon {
+    text-align: center;
+}
+
+th.tue {
+    text-align: center;
+}
+
+th.wed {
+    text-align: center;
+}
+
+th.thu {
+    text-align: center;
+}
+
+th.fri {
+    text-align: center;
+}
+
+th.sat {
+    text-align: center;
+}
+
+th.sun {
+    text-align: center;
+}
+
+
+/* table.month{
+    width: 700px;
+    height: 800px;
+    margin: 0 auto;
+    table-layout: fixed;
+    margin-top: 20px;
+}
+
+th.month{
+    height: 21px;
+    text-align: center;
+}
+
+th.sun{
+    height: 21px;
+} */
