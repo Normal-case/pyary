@@ -16,7 +16,7 @@ class Calendar(HTMLCalendar):
             try:
                 check = Diary.objects.get(user=self.user, date__year=self.year, date__month=self.month, date__day=day)
                 # return f'<td><span class="date">{day}</span><br><img src="/static/checked.png" style="width:100%; height:10px;></td>'
-                return f'<td><span class="date">{day}</span><br><span>작성완료</span></td>'
+                return f'<td><span class="date" style="font-weight: bold;">{day}</span><br><span>작성완료</span></td>'
             except:
                 return '<td><span class="date">{}</span></td>'.format(day)
         return '<td></td>'

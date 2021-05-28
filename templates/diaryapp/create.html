@@ -16,6 +16,12 @@
             <li>{{ field }} {{ field.errors }}</li>
             <li style='color:#975a97; font-weight:bold;'>일기장 사진을 업로드하시면 자동으로 내용을 업로드해드립니다.</li>
         </ul>
+        {% elif field.label == 'Content' %}
+        <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
+            <li>{{ field.label }}</li>
+            <li id='summernote'>{{ field }}</li>
+            <li style='color:#975a97; font-weight:bold;'>일기장 사진을 업로드하시면 자동으로 내용을 업로드해드립니다.</li>
+        </ul>
         {% else %}
         <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
             <li>{{ field.label }}</li>

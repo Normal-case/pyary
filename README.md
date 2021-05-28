@@ -5,6 +5,7 @@
 pip install django
 pip install opencv-python
 pip install easyocr
+pip install django-summernote
 ```
 
 사용방법   

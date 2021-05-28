@@ -3,11 +3,13 @@ from django.forms.widgets import MediaOrderConflictWarning
 from diaryapp.models import Diary
 from django import forms
 from memory_storage import settings
+from django_summernote.widgets import SummernoteWidget,SummernoteInplaceWidget
 
 class DiaryCreationForm(ModelForm):
     class Meta:
         model = Diary
         fields = ['title', 'feeling', 'date', 'ocr_image', 'content']
         widgets = {
-            'date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'})
+            'date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'content': SummernoteWidget()
         }

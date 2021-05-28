@@ -35,7 +35,7 @@ class DiaryCreate(CreateView):
         temp_diary.save()
 
         if temp_diary.ocr_image:
-            reader = easyocr.Reader(['ko'], gpu=True)
+            reader = easyocr.Reader(['ko', 'en'], gpu=True)
             path = settings.MEDIA_ROOT + '/' + temp_diary.ocr_image.name
             img = file_path_decode(path)
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

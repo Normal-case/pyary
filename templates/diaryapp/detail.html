@@ -46,7 +46,7 @@
         제목 : {{ target_diary.title }}
     </div>
     <div class='diary_content' style='border: 1px solid #b4b4b4; border-radius: 5px; margin: 20px auto; padding: 5px 5px;'>
-        {{ target_diary.content | linebreaks }}
+        {{ target_diary.content | safe }}
     </div>
 </div>
 
