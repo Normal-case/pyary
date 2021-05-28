@@ -3,6 +3,7 @@ from diaryapp.views import *
 
 app_name = 'diaryapp'
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
-    path('create/', DiaryCreate.as_view(), name='create'),
+    path('<str:id>', HomeView.as_view(), name='home'),
+    path('create/<str:id>', DiaryCreate.as_view(), name='create'),
+    path('read/<int:pk>', DiaryRead.as_view(), name='read'),
 ]

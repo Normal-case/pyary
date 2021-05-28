@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import View, DetailView, CreateView
+from django.views.generic import View, CreateView
 from django.contrib.auth.models import User
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile

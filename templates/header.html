@@ -8,11 +8,11 @@
         
         <ul class='navbar__menu'>
             {% if not user.is_authenticated %}
-            <li><a href="" style='text-decoration: none; color: white;'>홈</a></li>
+            <li><a href="{% url 'accountapp:login' %}" style='text-decoration: none; color: white;'>다이어리</a></li>
             <li><a href="{% url 'accountapp:login' %}" style='text-decoration: none; color: white;'>로그인</a></li>
             <li><a href="{% url 'accountapp:create' %}" style='text-decoration: none; color: white;'>회원가입</a></li>
             {% else %}
-            <li><a href="" style='text-decoration: none; color: white;'>홈</a></li>
+            <li><a href="{% url 'diaryapp:home' id=user.username %}" style='text-decoration: none; color: white;'>다이어리</a></li>
             <li><a href="{% url 'accountapp:logout' %}" style='text-decoration: none; color: white;'>로그아웃</a></li>
             <li><a href="{% url 'profileapp:main' id=user.username %}" style='text-decoration: none; color: white;'>마이페이지</a></li>
             {% endif %}

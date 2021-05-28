@@ -3,6 +3,8 @@
 필요 패키지
 ```
 pip install django
+pip install opencv-python
+pip install easyocr
 ```
 
 사용방법   

@@ -4,4 +4,7 @@
 
 {{ calendar }}
 
+<div style='text-align: center; margin: 30px 0;'>
+    <button type='button' class='btn btn-secondary col-2 rounded-pill'><a href="{% url 'diaryapp:create' id=user.username %}" style='text-decoration: none; color: white;'>일기작성</a></button>
+</div>
 {% endblock %}

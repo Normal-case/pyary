@@ -10,10 +10,6 @@
     <form action="{% url 'profileapp:create' id=user.username %}" method='post' enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
-            <div>
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                <input type="{{ field.field.widget.input_type }}" name="{{ field.html_name }}" id="{{ field.id_for_label }}" class="form-control">
-            </div>
         <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
             <li style='padding-left: 10px;'>{{ field.label }}</li>
             <li>{{ field }} {{ field.errors }}</li>

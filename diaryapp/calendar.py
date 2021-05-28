@@ -1,16 +1,24 @@
 from datetime import datetime, timedelta
 from calendar import HTMLCalendar
+from .models import Diary
 
 class Calendar(HTMLCalendar):
-    def __init__(self, year=None, month=None):
+    def __init__(self, year=None, month=None, user=None):
         self.year = year
         self.month = month
+        self.user = user
+        diary = Diary.objects.filter(user=self.user)
         super(Calendar, self).__init__()
 
     # 일을 td 태그로 변환하고 이벤트를 일순으로 필터
     def formatday(self, day):
         if day != 0:
-            return f'<td><span class="date">{day}</span></td>'
+            try:
+                check = Diary.objects.get(user=self.user, date__year=self.year, date__month=self.month, date__day=day)
+                # return f'<td><span class="date">{day}</span><br><img src="/static/checked.png" style="width:100%; height:10px;></td>'
+                return f'<td><span class="date">{day}</span><br><span>작성완료</span></td>'
+            except:
+                return '<td><span class="date">{}</span></td>'.format(day)
         return '<td></td>'
 
     # 주를 tr 태그로 변환

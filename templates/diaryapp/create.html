@@ -2,6 +2,31 @@
 {% load static %}
 {% block content %}
 
-<h1>일기작성 페이지</h1>
+
+<div style='text-align: center;'>
+    <h1>일기 작성</h1>
+</div>
+
+<form action="{% url 'diaryapp:create' id=user.username %}" method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+        {% if field.label == 'Image' %}
+        <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
+            <li>{{ field.label }}</li>
+            <li>{{ field }} {{ field.errors }}</li>
+            <li style='color:#975a97; font-weight:bold;'>일기장 사진을 업로드하시면 자동으로 내용을 업로드해드립니다.</li>
+        </ul>
+        {% else %}
+        <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
+            <li>{{ field.label }}</li>
+            <li>{{ field }} {{ field.errors }}</li>
+        </ul>
+        {% endif %}
+    {% endfor %}
+    
+    <div style='text-align: center;'>
+        <input type="submit" class='btn btn-secondary col-2 rounded-pill' value='작성하기'>
+    </div>
+</form>
 
 {% endblock %}
