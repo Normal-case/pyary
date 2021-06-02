@@ -1,38 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-
-<div style='text-align: center;'>
-    <h1>일기 작성</h1>
-</div>
-
-<form action="{% url 'diaryapp:create' id=user.username %}" method='post' enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in form %}
-        {% if field.label == 'Image' %}
-        <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
-            <li>{{ field.label }}</li>
-            <li>{{ field }} {{ field.errors }}</li>
-            <li style='color:#975a97; font-weight:bold;'>일기장 사진을 업로드하시면 자동으로 내용을 업로드해드립니다.</li>
-        </ul>
-        {% elif field.label == 'Content' %}
-        <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
-            <li>{{ field.label }}</li>
-            <li id='summernote'>{{ field }}</li>
-            <li style='color:#975a97; font-weight:bold;'>일기장 사진을 업로드하시면 자동으로 내용을 업로드해드립니다.</li>
-        </ul>
-        {% else %}
-        <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
-            <li>{{ field.label }}</li>
-            <li>{{ field }} {{ field.errors }}</li>
-        </ul>
-        {% endif %}
-    {% endfor %}
-    
-    <div style='text-align: center;'>
-        <input type="submit" class='btn btn-secondary col-2 rounded-pill' value='작성하기'>
+    <div id="background_harf">
+        <div id="background_harf_img"></div>
+        <div id="background_harf_empty"></div>
+        <div id="background_harf_layer"></div>
+        <div id="background_harf_title">추억 저장소</div>
     </div>
-</form>
 
+
+    <div id="main_con_big" style="position: relative">
+        <div style='text-align: center;'>
+            <h5><b>일기장 쓰기</b></h5>
+        </div>
+
+        <form action="{% url 'diaryapp:create' id=user.username %}" method='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                {% if field.label == 'Image' %}
+                    <ul style='margin: 0 auto; padding: 10px 0;'>
+                        <li>{{ field.label }}</li>
+                        <li>{{ field }} {{ field.errors }}</li>
+                        <li style='color:#975a97; font-weight:bold;'>일기장 사진을 업로드하시면 자동으로 내용을 업로드해드립니다.</li>
+                    </ul>
+                {% elif field.label == 'Content' %}
+                    <ul style='margin: 0 auto; padding: 10px 0;'>
+                        <li>{{ field.label }}</li>
+                        <li id='summernote'>{{ field }}</li>
+                        <li style='color:#975a97; font-weight:bold;'>일기장 사진을 업로드하시면 자동으로 내용을 업로드해드립니다.</li>
+                    </ul>
+                {% else %}
+                    <ul style=' margin: 0 auto; padding: 10px 0;'>
+                        <li>{{ field.label }}</li>
+                        <li>{{ field }} {{ field.errors }}</li>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+
+            <div style='text-align: center; margin-bottom: 0;'>
+                <input type="submit" class='btn btn-secondary col-2 rounded-pill' value='작성하기'>
+            </div>
+        </form>
+    </div>
+
+<div class="spacer" style="height: 126px;"></div>
 {% endblock %}

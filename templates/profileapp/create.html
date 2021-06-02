@@ -2,25 +2,33 @@
 {% load static %}
 
 {% block content %}
+    <div id="background_harf">
+        <div id="background_harf_img"></div>
+        <div id="background_harf_empty"></div>
+        <div id="background_harf_layer"></div>
+        <div id="background_harf_title">추억 저장소</div>
+    </div>
 
+    <div id="main_con_big">
     <div style='text-align: center;'>
-        <h1>프로필 생성</h1>
+        <h5><b>프로필 생성</b></h5>
     </div>
 
     <form action="{% url 'profileapp:create' id=user.username %}" method='post' enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
         <ul style='width: 500px; margin: 0 auto; padding: 10px 0;'>
-            <li style='padding-left: 10px;'>{{ field.label }}</li>
-            <li>{{ field }} {{ field.errors }}</li>
+            <li style='margin-bottom: 5px'>{{ field.label }}</li>
+            <li style="margin-bottom: 10px">{{ field }} {{ field.errors }}</li>
         </ul>
         
         {% endfor %}
-        <div style='text-align: center;'>
+        <div style='text-align: center; margin-top: 20px;'>
             <input type="submit" class='btn btn-secondary col-2 rounded-pill' value='생성하기'>
         </div>
         
     </form>
+    </div>
 
 
 {% endblock %}

@@ -1,35 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <div id="background_harf">
+        <div id="background_harf_img"></div>
+        <div id="background_harf_empty"></div>
+        <div id="background_harf_layer"></div>
+        <div id="background_harf_title">추억 저장소</div>
+    </div>
 
-<div style='text-align: center;'>
-    <h1>마이페이지</h1>
-</div>
+    <div id="main_con">
+        {% if target_user.profile %}
+            <div style='text-align: center;'>
+                <div class="profile_img_back"
+                     style="background-image: url('{{ target_user.profile.profile_image.url }}')">
+                    <div class="blur"></div>
+                </div>
+                <div class="profile_img"
+                     style="background-image: url('{{ target_user.profile.profile_image.url }}')"></div>
+                <div class="profile_wrapper">
+                    <div class="profile_con">
+                        <div class="profile_text">닉네임</div>
+                        <strong>{{ target_user.profile.nickname }}</strong>
+                    </div>
+                    <div class="profile_con">
+                        <div class="profile_text">전화번호</div>
+                        <strong>{{ target_user.profile.phone_number }}</strong>
+                    </div>
+                    <div class="profile_con">
+                        <div class="profile_text">생년월일</div>
+                        <strong>{{ target_user.profile.birth | date:"Y-m-d" }}</strong>
+                    </div>
+                </div>
+            </div>
 
-{% if target_user.profile %}
-<div style='text-align: center;'>
-    <img src="{{ target_user.profile.profile_image.url }}" alt="" style='border-radius: 50%; width:100px;'>
-    <h2>닉네임</h2>
-    <p>{{ target_user.profile.nickname }}</p>
-    <h2>휴대폰번호</h2>
-    <p>{{ target_user.profile.phone_number }}</p>
-    <h2>생년월일</h2>
-    <p>{{ target_user.profile.birth | date:"Y-m-d" }}</p>
-</div>
+        {% else %}
 
-{% else %}
+            <div style='text-align: center; margin: 50px 0;'>
+                <img src="/static/free-icon-anonymous.png" alt="" style="width: 100px; height:auto;">
+            </div>
 
-<div style='text-align: center; margin: 50px 0;'>
-    <img src="/static/free-icon-anonymous.png" alt="" style="width: 300px; height:auto;">
-</div>
+            <div style='text-align: center;'>
+                <p>아직 프로필이 등록되지 않았습니다! 프로필을 등록해주세요.</p>
+            </div>
 
-<div style='text-align: center;'>
-    <p>아직 프로필이 등록되지 않았습니다! 프로필을 등록해주세요.</p>
-</div>
+            <div style='text-align: center;'>
+                <button type='button' class='btn btn-secondary col-8 rounded-pill'><a
+                        href="{% url 'profileapp:create' id=user.username %}"
+                        style='text-decoration: none; color: white;'>프로필 생성</a></button>
+            </div>
+        {% endif %}
 
-<div style='text-align: center;'>
-    <button type='button' class='btn btn-secondary col-2 rounded-pill'><a href="{% url 'profileapp:create' id=user.username %}" style='text-decoration: none; color: white;'>프로필 생성</a></button>
-</div>
-{% endif %}
+    </div>
 
 {% endblock %}

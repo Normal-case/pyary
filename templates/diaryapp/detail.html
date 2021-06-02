@@ -1,53 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <div id="background_harf">
+        <div id="background_harf_img"></div>
+        <div id="background_harf_empty"></div>
+        <div id="background_harf_layer"></div>
+        <div id="background_harf_title">추억 저장소</div>
+    </div>
 
-<div class='diary_content' style='margin: 20px auto; width: 700px'>
-    <div class='diary_head' style='text-align: center;'>
-        <h1><span style='color:blueviolet'>'{{ target_diary.user.profile.nickname }}'</span>님의 다이어리</h1>
-    </div>
-    <div class='diary_date_and_feeling' style='display:flex;'>
-        {% if target_diary.feeling == 'joy' %}
-        <div style='font-size: 40px; height: auto;'>
-            <!-- joy -->
-            <i class="far fa-smile-beam" style='padding: 0'></i>
-        </div>
-        <div style='margin-left: 20px; width: 200px; font-size: 20px;'>
-            <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
-        </div>
-        {% elif target_diary.feeling == 'sad' %}
-        <div style='font-size: 40px; height: auto;'>
-            <!-- sad -->
-            <i class="far fa-sad-tear" style='padding: 0'></i>
-        </div>
-        <div style='margin-left: 20px; width: 200px; font-size: 20px;'>
-            <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
-        </div>
-        {% elif target_diary.feeling == 'angry' %}
-        <div style='font-size: 40px; height: auto;'>
-            <!-- angry -->
-            <i class="far fa-angry" style='padding: 0'></i>
-        </div>
-        <div style='margin-left: 20px; width: 200px; font-size: 20px;'>
-            <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
-        </div>
-        {% elif target_diary.feeling == 'fear' %}
-        <div style='font-size: 40px; height: auto;'>
-            <!-- fear -->
-            <i class="far fa-grimace" style='padding: 0'></i>
-        </div>
-        <div style='margin-left: 20px; width: 200px; font-size: 20px;'>
-            <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
-        </div>
-        {% endif %}
-        
-    </div>
-    <div class='diary_title'>
-        제목 : {{ target_diary.title }}
-    </div>
-    <div class='diary_content' style='border: 1px solid #b4b4b4; border-radius: 5px; margin: 20px auto; padding: 5px 5px;'>
-        {{ target_diary.content | safe }}
-    </div>
-</div>
+    <div id="main_con_big" style="position: relative">
+        <div class='diary_content' style='margin: 20px auto; width: 700px'>
+            <div style='text-align: center;'>
+                <h5><b><span>'{{ target_diary.user.profile.nickname }}'</span></b>님의 다이어리</h5>
+            </div>
+            <div class='diary_date_and_feeling' style='display:flex;'>
+                {% if target_diary.feeling == 'joy' %}
+                    <div style='font-size: 40px; height: auto;'>
+                        <!-- joy -->
+                        <i class="far fa-smile-beam" style='padding: 0; float: left;'></i>
+                    </div>
+                {% elif target_diary.feeling == 'sad' %}
+                    <div style='font-size: 40px; height: auto;'>
+                        <!-- sad -->
+                        <i class="far fa-sad-tear" style='padding: 0; float: left;'></i>
+                    </div>
+                {% elif target_diary.feeling == 'angry' %}
+                    <div style='font-size: 40px; height: auto;'>
+                        <!-- angry -->
+                        <i class="far fa-angry" style='padding: 0; float: left;'></i>
+                    </div>
+                {% elif target_diary.feeling == 'fear' %}
+                    <div style='font-size: 40px; height: auto;'>
+                        <!-- fear -->
+                        <i class="far fa-grimace" style='padding: 0; float: left;'></i>
+                    </div>
+                {% endif %}
+                    <div style='margin-left: 20px; width: 200px; font-size: 18px; font-weight: bold; padding-top: 5px'>
+                        <span style='text-align: center; margin-top: 5px;'>{{ target_diary.date }}</span>
+                    </div>
 
+            </div>
+            <div class='diary_title'>
+                제목 : {{ target_diary.title }}
+            </div>
+            <div class='diary_content'
+                 style='border: 1px solid #b4b4b4; border-radius: 5px; margin: 20px auto; padding: 5px 5px; height: 483px; overflow-y: scroll; word-break: break-all;'>
+                {{ target_diary.content | safe }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

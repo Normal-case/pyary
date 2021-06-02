@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <div id="background_harf">
+        <div id="background_harf_img"></div>
+        <div id="background_harf_empty"></div>
+        <div id="background_harf_layer"></div>
+        <div id="background_harf_title">추억 저장소</div>
+    </div>
 
-{{ calendar }}
+    <div id="main_con_big">
+    {{ calendar }}
 
-<div style='text-align: center; margin: 30px 0;'>
-    <button type='button' class='btn btn-secondary col-2 rounded-pill'><a href="{% url 'diaryapp:create' id=user.username %}" style='text-decoration: none; color: white;'>일기작성</a></button>
-</div>
+
+        <div style='text-align: center; margin: 30px 0 0;'>
+            <button type='button' class='btn btn-secondary col-2 rounded-pill' style="float:left;"><a onclick="" style='text-decoration: none; color: white;'>저번달</a>
+            </button>
+            <button type='button' class='btn btn-secondary col-2 rounded-pill'><a
+                    href="{% url 'diaryapp:create' id=user.username %}" style='text-decoration: none; color: white;'>일기작성</a>
+            </button>
+            <button type='button' class='btn btn-secondary col-2 rounded-pill' style="float:right;"><a onclick="" style='text-decoration: none; color: white;'>다음달</a>
+            </button>
+        </div>
+    </div>
 {% endblock %}
